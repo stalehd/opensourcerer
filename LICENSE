@@ -1,32 +1,4 @@
-package main
 
-//
-//Copyright 2018 Ståle Holberg Dahl
-//
-//Licensed under the Apache License, Version 2.0 (the "License");
-//you may not use this file except in compliance with the License.
-//You may obtain a copy of the License at
-//
-//http://www.apache.org/licenses/LICENSE-2.0
-//
-//Unless required by applicable law or agreed to in writing, software
-//distributed under the License is distributed on an "AS IS" BASIS,
-//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//See the License for the specific language governing permissions and
-//limitations under the License.
-//
-
-// This is licensing inception!
-
-import "strings"
-
-type apache20 struct {
-	year  string
-	owner string
-}
-
-func (a *apache20) LicenseText() string {
-	return `
 	Apache License
 	Version 2.0, January 2004
 	http://www.apache.org/licenses/
@@ -228,31 +200,4 @@ func (a *apache20) LicenseText() string {
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-	`
-}
-
-func (a *apache20) FileHeader() string {
-	const apacheHeader = `
-Copyright {yyyy} {name of copyright owner}
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-`
-	ret := strings.Replace(apacheHeader, "{yyyy}", a.year, -1)
-	ret = strings.Replace(ret, "{name of copyright owner}", a.owner, -1)
-	return ret
-}
-
-// NewApache20License returns an Apache 2.0 license
-func NewApache20License(year, owner string) License {
-	return &apache20{year, owner}
-}
+	
