@@ -84,7 +84,6 @@ func applyLicenseToFiles(f *os.File, dirPath string, license License) {
 		fmt.Printf("Unable to read directory %s: %v\n", f.Name(), err)
 		return
 	}
-	fmt.Println("Reading directory ", f.Name())
 	for _, v := range files {
 		filePath := path.Join(dirPath, v.Name())
 		item, err := os.Open(filePath)
